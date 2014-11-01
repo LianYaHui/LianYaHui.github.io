@@ -1,0 +1,21 @@
+﻿
+
+body {
+    background-color: #0d3b6c;
+    color: white;
+}
+
+::selection {
+    color: #efeb00;
+    text-shadow: 3px 3px 2px #00ffb9;
+    background-color: #065964;
+}
+
+.main {
+    margin-top: -465px;
+}
+
+.bg {
+    background: url("images/body_bg.jpg") no-repeat scroll center top rgba(0, 0, 0, 0);
+    height: 526px;
+}
