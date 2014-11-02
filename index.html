@@ -42,18 +42,29 @@
         </div>
     </div>
 
-    <div class="bg">
+
+    <div style="margin-top:100px;">
 
     </div>
 
-    <div class="container main">
+    <span class="fui-star fx-star"></span>
+
+    <span class="fui-star fx-star"></span>
+
+
+    <div>
+
+    </div>
+
+
+
+    <div class="container">
         <div>
             GitHub
 
         </div>
 
-
-        <footer id="footer" class="container"></footer>
+        <footer id="footer"></footer>
     </div>
 
 
@@ -61,10 +72,56 @@
     <script src="Common/Flat/js/flat-ui.js"></script>
 
     <script>
+
+
+        function GetRand() {
+            return Math.random() * 10000000;
+        }
+
+
         $(function () {
-            var $footer = $("#footer");
+            function Star(obj) {
+
+                var timer = (GetRand() % 5000 + 3000);
+
+
+                $(obj).css({
+                    top: (GetRand() % parseInt(height)) + "px",
+                    left: (GetRand() % parseInt($body.width() - 15)) + "px",
+                    "font-size": (GetRand() % 9 + 1) + "px",
+                    "animation-duration": timer + "ms"
+                });
+
+                setTimeout(Star, timer, obj);
+
+            }
+
+
+
+            var $footer = $("#footer"),
+                $body = $(document.body);
 
             $footer.load("footer.html");
+
+
+            var starNum = 60;
+
+
+            var starHtml = "";
+            for (var i = 0; i < starNum; i++)
+                starHtml += ("<span class='fui-star fx-star'></span>");
+
+            var height = document.documentElement.clientHeight;
+            height = height > $body.height() ? height : $body.height();
+
+            var stars = $(starHtml).each(function (i, span) {
+                Star(span);
+            });
+
+            $body.append(stars);
+
+
+
         });
     </script>
 </body>

@@ -1,8 +1,9 @@
 ﻿
 
 body {
-    background-color: #0d3b6c;
     color: white;
+    background: url("/Common/Images/body_bg.jpg") no-repeat scroll center top #0d3b6c;
+    height: 100%;
 }
 
 ::selection {
@@ -11,11 +12,34 @@ body {
     background-color: #065964;
 }
 
-.main {
-    margin-top: -465px;
+.p_2d {
+    text-indent: 2em;
 }
 
-.bg {
-    background: url("images/body_bg.jpg") no-repeat scroll center top rgba(0, 0, 0, 0);
-    height: 526px;
+
+.fx-star {
+    text-shadow: 0 0 10px #f5ff00;
+    border-radius: 50%;
+    -moz-animation: rote360 5s infinite;
+    -o-animation: rote360 5s infinite;
+    -webkit-animation: rote360 5s infinite;
+    animation: rote360 5s infinite;
+    transform-origin: center center;
+    font-size: 10px;
+    position: absolute;
+}
+
+
+@keyframes rote360 {
+    from {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
 }
