@@ -7,6 +7,13 @@
     <link href="Common/Flat/css/flat-ui.css" rel="stylesheet" />
     <link href="Common/Common.css" rel="stylesheet" />
 
+    <style>
+        .clockIcon {
+            padding: 45px 10px 45px 10px;
+            background-color: #0f1620;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <!--top-->
@@ -15,49 +22,67 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="https://github.com/LianYaHui/LianYaHui.github.io">Fork in GitHub</a>
             </div>
-<!--             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Action</a></li>
-                            <li><a href="#">Another action</a></li>
-                            <li><a href="#">Something else here</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="#">Separated link</a></li>
-                            <li><a href="#">One more separated link</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="../navbar/">Default</a></li>
-                    <li class="active"><a href="./">Static top</a></li>
-                    <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-                </ul>
-            </div> -->
-
+            <!--             <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                                <li class="active"><a href="#">Home</a></li>
+                                <li><a href="#about">About</a></li>
+                                <li><a href="#contact">Contact</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li><a href="#">Another action</a></li>
+                                        <li><a href="#">Something else here</a></li>
+                                        <li class="divider"></li>
+                                        <li class="dropdown-header">Nav header</li>
+                                        <li><a href="#">Separated link</a></li>
+                                        <li><a href="#">One more separated link</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="../navbar/">Default</a></li>
+                                <li class="active"><a href="./">Static top</a></li>
+                                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+                            </ul>
+                        </div> -->
             <!--/.nav-collapse -->
+        </div>
+    </div>
+
+    <div class="padding30"></div>
+
+    <div id="Divclock" class="fixedclock">
+        <div id="clock" class="dark floatLeft">
+            <div class="display">
+                <div class="weekdays"></div>
+                <div class="ampm"></div>
+                <div class="alarm"></div>
+                <div class="digits"></div>
+            </div>
+        </div>
+        <div class="floatLeft clockIcon">
+            <img src="Common/Images/alarm_dark.jpg" alt="时钟" />
         </div>
     </div>
 
 
 
-    <!--<div class="container">
+
+    <div class="container">
         <div>
             GitHub
 
         </div>
 
-        <footer id="footer"></footer>
-    </div>-->
+
+    </div>
+    <footer id="footer"></footer>
 
 
     <script src="Common/jquery-2.1.1.js"></script>
     <script src="Common/Flat/js/flat-ui.js"></script>
+    <script src="Common/NumberClock.js"></script>
 
     <script>
 
@@ -102,11 +127,11 @@
             var height = document.documentElement.clientHeight;
             height = height > $body.height() ? height : $body.height();
 
-            var stars = $(starHtml).each(function (i, span) {
-                Star(span);
-            });
+            //var stars = $(starHtml).each(function (i, span) {
+            //    Star(span);
+            //});
 
-            $body.append(stars);
+            //$body.append(stars);
 
             starNum = 10;
 
@@ -115,12 +140,12 @@
                 shootingHtml += ("<div class='shooting-star'><div></div></div>");
 
 
-            var $shootStar = $(shootingHtml).each(function () {
-                ShootStar(this);
+            //var $shootStar = $(shootingHtml).each(function () {
+            //    ShootStar(this);
 
-            });
+            //});
 
-            $body.append($shootStar);
+            //$body.append($shootStar);
 
             function ShootStar(obj) {
                 var _W = (GetRand() % 500 + 200),
@@ -145,6 +170,27 @@
                         ShootStar(obj);
                     });
             }
+
+            var clockIn = true;
+            var $clock = $("#Divclock").animate({
+                left: (-370 + "px")
+            }, 1000);
+
+            $clock.find(".clockIcon").click(function () {
+                if (clockIn)
+                    $clock.animate({
+                        left: 0
+                    }, 1000);
+                else
+                    $clock.animate({
+                        left: (-370 + "px")
+                    }, 1000);
+
+
+                clockIn = !clockIn;
+            });
+
+
 
         });
     </script>
