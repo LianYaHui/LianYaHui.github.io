@@ -1,0 +1,99 @@
+﻿<style>
+    .fx-star {
+        text-shadow: 0 0 10px #f5ff00;
+        border-radius: 50%;
+        -moz-animation: rote360 5s infinite;
+        -o-animation: rote360 5s infinite;
+        -webkit-animation: rote360 5s infinite;
+        animation: rote360 5s infinite;
+        transform-origin: center center;
+        font-size: 10px;
+        position: absolute;
+    }
+
+
+    @-moz-keyframes rote360 {
+        from {
+            transform: scale(0);
+        }
+
+        50% {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(0);
+        }
+    }
+
+    @-webkit-keyframes rote360 {
+        from {
+            transform: scale(0);
+        }
+
+        50% {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(0);
+        }
+    }
+
+    @keyframes rote360 {
+        from {
+            transform: scale(0);
+        }
+
+        50% {
+            transform: scale(1);
+        }
+
+        to {
+            transform: scale(0);
+        }
+    }
+</style>
+
+<script>
+
+    $(function () {
+        function Star(obj) {
+            var timer = (GetRand() % 5000 + 3000);
+
+
+            $(obj).css({
+                top: (GetRand() % parseInt(height) - 50) + "px",
+                left: (GetRand() % parseInt($body.width() - 15)) + "px",
+                "font-size": (GetRand() % 9 + 1) + "px",
+                "animation-duration": timer + "ms"
+            });
+
+            setTimeout(Star, timer, obj);
+
+        }
+
+
+        var $body = $(document.body);
+        var height = document.documentElement.clientHeight;
+        height = height > $body.height() ? height : $body.height();
+
+        var numStar = $("#txt_NumStar").val();
+        numStar = parseInt(numStar);
+        var starNum = numStar;
+
+
+        var starHtml = "";
+        for (var i = 0; i < starNum; i++)
+            starHtml += ("<span class='fui-star fx-star'></span>");
+
+
+
+        var stars = $(starHtml).each(function (i, span) {
+            Star(span);
+        });
+
+        $body.append(stars);
+
+    });
+</script>

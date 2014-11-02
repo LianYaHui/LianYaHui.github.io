@@ -7,13 +7,6 @@
     <link href="Common/Flat/css/flat-ui.css" rel="stylesheet" />
     <link href="Common/Common.css" rel="stylesheet" />
 
-    <style>
-        .clockIcon {
-            padding: 45px 10px 45px 10px;
-            background-color: #0f1620;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <!--top-->
@@ -22,51 +15,81 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="https://github.com/LianYaHui/LianYaHui.github.io">Fork in GitHub</a>
             </div>
-            <!--             <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav">
-                                <li class="active"><a href="#">Home</a></li>
-                                <li><a href="#about">About</a></li>
-                                <li><a href="#contact">Contact</a></li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li class="dropdown-header">Nav header</li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav navbar-right">
-                                <li><a href="../navbar/">Default</a></li>
-                                <li class="active"><a href="./">Static top</a></li>
-                                <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-                            </ul>
-                        </div> -->
+            <div class="navbar-collapse collapse">
+                <!--<ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>-->
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="#" title="设置" id="btn_setting">
+                            <span class="visible-sm visible-xs">
+                                设置<span class="fui-gear"></span>
+                            </span>
+                            <span class="visible-md visible-lg">
+                                <span class="fui-gear"></span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
             <!--/.nav-collapse -->
         </div>
     </div>
 
     <div class="padding30"></div>
 
-    <div id="Divclock" class="fixedclock">
-        <div id="clock" class="dark floatLeft">
-            <div class="display">
-                <div class="weekdays"></div>
-                <div class="ampm"></div>
-                <div class="alarm"></div>
-                <div class="digits"></div>
+
+
+
+    <!--setting-->
+    <div id="setting_div" class="center-Block ">
+        <div class="magin10 container-fluid contont">
+            <div class="text-right pointerIcon">
+                <span class="fui-cross"></span>
             </div>
+
+            <div class="row">
+                <div class="col-md-5 row-title text-right">闪亮星星的个数</div>
+                <div class="col-md-7">
+                    <input value="10" id="txt_NumStar" type="text" placeholder="请输入闪亮星星的个数" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row magintop10">
+                <div class="col-md-5 row-title text-right">小流星的个数</div>
+                <div class="col-md-7">
+                    <input value="1" type="text" id="txt_NumShootStar" placeholder="请输入小流星的个数" class="form-control" />
+                </div>
+            </div>
+
+            <div class="row magintop10">
+                <div class="col-md-5 row-title text-right">显示时钟</div>
+                <div class="col-md-7">
+                    <input checked="checked" type="checkbox" data-toggle="switch" id="ck_showClock" />
+                </div>
+            </div>
+
         </div>
-        <div class="floatLeft clockIcon">
-            <img src="Common/Images/alarm_dark.jpg" alt="时钟" />
+
+
+        <div class="text-center in-button">
+            <button class="btn btn-primary" id="btn_SaveSetting">保存</button>
         </div>
     </div>
-
-
 
 
     <div class="container">
@@ -82,7 +105,6 @@
 
     <script src="Common/jquery-2.1.1.js"></script>
     <script src="Common/Flat/js/flat-ui.js"></script>
-    <script src="Common/NumberClock.js"></script>
 
     <script>
 
@@ -93,105 +115,90 @@
 
 
         $(function () {
-            function Star(obj) {
-
-                var timer = (GetRand() % 5000 + 3000);
-
-
-                $(obj).css({
-                    top: (GetRand() % parseInt(height)) + "px",
-                    left: (GetRand() % parseInt($body.width() - 15)) + "px",
-                    "font-size": (GetRand() % 9 + 1) + "px",
-                    "animation-duration": timer + "ms"
-                });
-
-                setTimeout(Star, timer, obj);
-
-            }
 
 
 
+            //footLoad
             var $footer = $("#footer"),
                 $body = $(document.body);
 
             $footer.load("footer.html");
 
+            //setting
 
-            var starNum = 60;
-
-
-            var starHtml = "";
-            for (var i = 0; i < starNum; i++)
-                starHtml += ("<span class='fui-star fx-star'></span>");
-
-            var height = document.documentElement.clientHeight;
-            height = height > $body.height() ? height : $body.height();
-
-            var stars = $(starHtml).each(function (i, span) {
-                Star(span);
-            });
-
-            $body.append(stars);
-
-            starNum = 10;
-
-            var shootingHtml = "";
-            for (var i = 0; i < starNum; i++)
-                shootingHtml += ("<div class='shooting-star'><div></div></div>");
+            var $setting = $("#setting_div");
+            var $ck = $('#ck_showClock').bootstrapSwitch();
+            $("#btn_setting").click(function () {
 
 
-            var $shootStar = $(shootingHtml).each(function () {
-                ShootStar(this);
+                var $setting_div = $setting.animate({
+                    top: (100 + "px")
+                }, 1000);
 
             });
 
-            $body.append($shootStar);
+            $setting.find(".fui-cross").click(function () {
+                $setting.animate({ top: "-700px" }, 1000);
+            });
 
-            function ShootStar(obj) {
-                var _W = (GetRand() % 500 + 200),
-                    _w = (GetRand() % 50 + 50),
-                    timer = (GetRand() % 4000 + 1000);
+            var $clockEle = $("<div></div>");
+            $body.append($clockEle);
+            var $starEle = $("<div></div>");
+            $body.append($starEle);
+            var $SstarEle = $("<div></div>");
+            $body.append($SstarEle);
 
-
-                $(obj).css({
-                    width: (_W + "px"),
-                    height: ((GetRand() % 2 + 1) + "px"),
-                    transform: "rotate(-" + (GetRand() % 15 + 30) + "deg)",
-                    top: (GetRand() % parseInt(height)) + "px",
-                    left: (GetRand() % parseInt($body.width()) - 100) + "px",
-                }).find("div")
-                    .css({
-                        width: _w + "px",
-                        right: -_w + "px"
-                    })
-                    .animate({
-                        right: _W + _w + "px"
-                    }, timer, "linear", function () {
-                        ShootStar(obj);
-                    });
-            }
-
-            var clockIn = true;
-            var $clock = $("#Divclock").animate({
-                left: (-370 + "px")
-            }, 1000);
-
-            $clock.find(".clockIcon").click(function () {
-                if (clockIn)
-                    $clock.animate({
-                        left: 0
-                    }, 1000);
-                else
-                    $clock.animate({
-                        left: (-370 + "px")
-                    }, 1000);
+            var $btnSaveSetting = $("#btn_SaveSetting").click(function () {
+                var isShowClock = $ck.bootstrapSwitch("state");
 
 
-                clockIn = !clockIn;
+                if (isShowClock) {
+                    if ($clockEle.data("IsShow") !== isShowClock) {
+                        $clockEle.data("IsShow", isShowClock);
+                        $clockEle.load("Plus/clock.html");
+                    }
+                } else {
+                    $clockEle.data("IsShow", isShowClock);
+                    $clockEle.html("");
+                }
+
+                var $numShootStar = $("#txt_NumShootStar").val();
+                $numShootStar = parseInt($numShootStar);
+                $Sstar = $('.shooting-star');
+                if ($numShootStar > 0) {
+                    if ($SstarEle.data("Num") != $numShootStar) {
+                        $SstarEle.data("Num", $numShootStar);
+
+                        $Sstar.remove();
+                        $SstarEle.load("Plus/ShootStar.html");
+                    }
+                }
+                else {
+                    $Sstar.remove();
+                    $SstarEle.html("");
+                }
+
+
+                var numStar = $("#txt_NumStar").val();
+                numStar = parseInt(numStar);
+
+                var $star = $(".fx-star");
+                if (numStar > 0) {
+                    if ($starEle.data("Num") != numStar) {
+                        $starEle.data("Num", numStar);
+
+                        $star.remove();
+                        $starEle.load("Plus/Star.html");
+                    }
+                }
+                else {
+                    $star.remove();
+                    $starEle.html("");
+                }
             });
 
 
-
+            $btnSaveSetting.click();
         });
     </script>
 </body>
