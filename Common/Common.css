@@ -3,7 +3,9 @@
 body {
     color: white;
     background: url("/Common/Images/body_bg.jpg") no-repeat scroll center top #0d3b6c;
-    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    height: 2000px;
 }
 
 ::selection {
@@ -30,6 +32,34 @@ body {
 }
 
 
+@-moz-keyframes rote360 {
+    from {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
+
+@-webkit-keyframes rote360 {
+    from {
+        transform: scale(0);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+}
+
 @keyframes rote360 {
     from {
         transform: scale(0);
@@ -43,3 +73,21 @@ body {
         transform: scale(0);
     }
 }
+
+.shooting-star {
+    overflow: hidden;
+    transform-origin: right center;
+    transform: rotate(-40deg);
+    position: absolute;
+}
+
+    .shooting-star div {
+        padding-top: 3px;
+        height: 30%;
+        border-radius: 50px;
+        position: relative;
+        top: 0;
+        float: right;
+        background-color: #ffffff;
+        box-shadow: 0 0 10px #fbf5d0;
+    }

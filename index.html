@@ -43,29 +43,15 @@
     </div>
 
 
-    <div style="margin-top:100px;">
 
-    </div>
-
-    <span class="fui-star fx-star"></span>
-
-    <span class="fui-star fx-star"></span>
-
-
-    <div>
-
-    </div>
-
-
-
-    <div class="container">
+    <!--<div class="container">
         <div>
             GitHub
 
         </div>
 
         <footer id="footer"></footer>
-    </div>
+    </div>-->
 
 
     <script src="Common/jquery-2.1.1.js"></script>
@@ -120,7 +106,43 @@
 
             $body.append(stars);
 
+            starNum = 10;
 
+            var shootingHtml = "";
+            for (var i = 0; i < starNum; i++)
+                shootingHtml += ("<div class='shooting-star'><div></div></div>");
+
+
+            var $shootStar = $(shootingHtml).each(function () {
+                ShootStar(this);
+
+            });
+
+            $body.append($shootStar);
+
+            function ShootStar(obj) {
+                var _W = (GetRand() % 500 + 200),
+                    _w = (GetRand() % 50 + 50),
+                    timer = (GetRand() % 4000 + 1000);
+
+
+                $(obj).css({
+                    width: (_W + "px"),
+                    height: ((GetRand() % 2 + 1) + "px"),
+                    transform: "rotate(-" + (GetRand() % 15 + 30) + "deg)",
+                    top: (GetRand() % parseInt(height)) + "px",
+                    left: (GetRand() % parseInt($body.width()) - 100) + "px",
+                }).find("div")
+                    .css({
+                        width: _w + "px",
+                        right: -_w + "px"
+                    })
+                    .animate({
+                        right: _W + _w + "px"
+                    }, timer, "linear", function () {
+                        ShootStar(obj);
+                    });
+            }
 
         });
     </script>
