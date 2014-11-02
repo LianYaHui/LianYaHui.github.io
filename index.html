@@ -127,11 +127,11 @@
             var height = document.documentElement.clientHeight;
             height = height > $body.height() ? height : $body.height();
 
-            //var stars = $(starHtml).each(function (i, span) {
-            //    Star(span);
-            //});
+            var stars = $(starHtml).each(function (i, span) {
+                Star(span);
+            });
 
-            //$body.append(stars);
+            $body.append(stars);
 
             starNum = 10;
 
@@ -140,12 +140,12 @@
                 shootingHtml += ("<div class='shooting-star'><div></div></div>");
 
 
-            //var $shootStar = $(shootingHtml).each(function () {
-            //    ShootStar(this);
+            var $shootStar = $(shootingHtml).each(function () {
+                ShootStar(this);
 
-            //});
+            });
 
-            //$body.append($shootStar);
+            $body.append($shootStar);
 
             function ShootStar(obj) {
                 var _W = (GetRand() % 500 + 200),
