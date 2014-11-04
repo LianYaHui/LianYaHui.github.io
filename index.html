@@ -6,7 +6,7 @@
     <link href="Common/Bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="Common/Flat/css/flat-ui.css" rel="stylesheet" />
     <link href="Common/Common.css" rel="stylesheet" />
-
+    <link href="Common/ns.css" rel="stylesheet" />
 </head>
 <body>
     <!--top-->
@@ -105,7 +105,7 @@
 
     <script src="Common/jquery-2.1.1.js"></script>
     <script src="Common/Flat/js/flat-ui.js"></script>
-
+    <script src="Common/ns.js"></script>
     <script>
 
 
@@ -115,9 +115,6 @@
 
 
         $(function () {
-
-
-
             //footLoad
             var $footer = $("#footer"),
                 $body = $(document.body);
@@ -150,8 +147,6 @@
 
             var $btnSaveSetting = $("#btn_SaveSetting").click(function () {
                 var isShowClock = $ck.bootstrapSwitch("state");
-
-
                 if (isShowClock) {
                     if ($clockEle.data("IsShow") !== isShowClock) {
                         $clockEle.data("IsShow", isShowClock);
@@ -195,10 +190,20 @@
                     $star.remove();
                     $starEle.html("");
                 }
+
+                if ($btnSaveSetting.data("Notifi") === 1) {
+                    var notification = new NotificationFx({
+                        message: '<p>设置成功,正在重新载入。。</p>',
+                        layout: 'attached',
+                        effect: 'flip',
+                        type: 'notice'
+                    }).show();
+                }
             });
 
 
             $btnSaveSetting.click();
+            $btnSaveSetting.data("Notifi", 1);
         });
     </script>
 </body>
