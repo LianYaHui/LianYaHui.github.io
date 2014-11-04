@@ -9,120 +9,124 @@
     <link href="Common/ns.css" rel="stylesheet" />
 </head>
 <body>
-    <!--top-->
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div id="body_div" style="overflow:auto;">
+
+        <!--top-->
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="https://github.com/LianYaHui/LianYaHui.github.io">Fork in GitHub</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <!--<ul class="nav navbar-nav">
+                        <li class="active">
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#about">About</a>
+                        </li>
+                        <li>
+                            <a href="#contact">Contact</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                Dropdown <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="#">Action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Another action</a>
+                                </li>
+                                <li>
+                                    <a href="#">Something else here</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li>
+                                    <a href="#">Separated link</a>
+                                </li>
+                                <li>
+                                    <a href="#">One more separated link</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    -->
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#" title="设置" id="btn_setting">
+                                <span class="visible-sm visible-xs">
+                                    设置
+                                    <span class="fui-gear"></span>
+                                </span>
+                                <span class="visible-md visible-lg">
+                                    <span class="fui-gear"></span>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+
+        <div class="padding30"></div>
+
+        <!--setting-->
+        <div id="setting_div" class="center-Block ">
+            <div class="magin10 container-fluid contont">
+                <div class="text-right pointerIcon">
+                    <span class="fui-cross"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5 row-title text-right">闪亮星星的个数</div>
+                    <div class="col-md-7">
+                        <input value="10" id="txt_NumStar" type="text" placeholder="请输入闪亮星星的个数" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row magintop10">
+                    <div class="col-md-5 row-title text-right">小流星的个数</div>
+                    <div class="col-md-7">
+                        <input value="1" type="text" id="txt_NumShootStar" placeholder="请输入小流星的个数" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="row magintop10">
+                    <div class="col-md-5 row-title text-right">显示时钟</div>
+                    <div class="col-md-7">
+                        <input checked="checked" type="checkbox" data-toggle="switch" id="ck_showClock" />
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="text-center in-button">
+                <button class="btn btn-primary" id="btn_SaveSetting">保存</button>
+            </div>
+        </div>
+
         <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="https://github.com/LianYaHui/LianYaHui.github.io">Fork in GitHub</a>
+            <div class='row'>
+                <div class="col-md-2"></div>
+                <div class="col-md-8">
+
+                </div>
+                <div class="col-md-2 left-border-tw">
+                    <p>浮云</p>
+                    <div>
+                        <a href="Love/">未完待续</a>
+                    </div>
+                </div>
+
             </div>
-            <div class="navbar-collapse collapse">
-                <!--<ul class="nav navbar-nav">
-                    <li class="active">
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#about">About</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
-                    </li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            Dropdown <b class="caret"></b>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="#">Action</a>
-                            </li>
-                            <li>
-                                <a href="#">Another action</a>
-                            </li>
-                            <li>
-                                <a href="#">Something else here</a>
-                            </li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li>
-                                <a href="#">Separated link</a>
-                            </li>
-                            <li>
-                                <a href="#">One more separated link</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-                -->
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#" title="设置" id="btn_setting">
-                            <span class="visible-sm visible-xs">
-                                设置
-                                <span class="fui-gear"></span>
-                            </span>
-                            <span class="visible-md visible-lg">
-                                <span class="fui-gear"></span>
-                            </span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
+
         </div>
+        <footer id="footer" class="container"></footer>
     </div>
-
-    <div class="padding30"></div>
-
-    <!--setting-->
-    <div id="setting_div" class="center-Block ">
-        <div class="magin10 container-fluid contont">
-            <div class="text-right pointerIcon">
-                <span class="fui-cross"></span>
-            </div>
-
-            <div class="row">
-                <div class="col-md-5 row-title text-right">闪亮星星的个数</div>
-                <div class="col-md-7">
-                    <input value="10" id="txt_NumStar" type="text" placeholder="请输入闪亮星星的个数" class="form-control" />
-                </div>
-            </div>
-
-            <div class="row magintop10">
-                <div class="col-md-5 row-title text-right">小流星的个数</div>
-                <div class="col-md-7">
-                    <input value="1" type="text" id="txt_NumShootStar" placeholder="请输入小流星的个数" class="form-control" />
-                </div>
-            </div>
-
-            <div class="row magintop10">
-                <div class="col-md-5 row-title text-right">显示时钟</div>
-                <div class="col-md-7">
-                    <input checked="checked" type="checkbox" data-toggle="switch" id="ck_showClock" />
-                </div>
-            </div>
-
-        </div>
-
-        <div class="text-center in-button">
-            <button class="btn btn-primary" id="btn_SaveSetting">保存</button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class='row'>
-            <div class="col-md-2">left</div>
-            <div class="col-md-8">center</div>
-            <div class="col-md-2 left-border-tw">
-                <p>浮云</p>
-                <div>
-                    <a href="Love/">未完待续</a>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-    <footer id="footer" class="container"></footer>
-
 
     <script src="Common/jquery-2.1.1.js"></script>
     <script src="Common/Flat/js/flat-ui.js"></script>
@@ -140,6 +144,7 @@
 
             $footer.load("footer.html");
 
+            $("#body_div").height(document.documentElement.clientHeight);
             //setting
 
             var $setting = $("#setting_div");

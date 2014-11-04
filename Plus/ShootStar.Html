@@ -27,7 +27,7 @@
         height = height > $body.height() ? height : $body.height();
 
 
-        var  starNum = $("#txt_NumShootStar").val();
+        var starNum = $("#txt_NumShootStar").val();
         starNum = parseInt(starNum);
 
         var shootingHtml = "";
@@ -53,7 +53,7 @@
                 height: ((GetRand() % 2 + 1) + "px"),
                 transform: "rotate(-" + (GetRand() % 15 + 30) + "deg)",
                 top: (GetRand() % parseInt(height)) + "px",
-                left: (GetRand() % parseInt($body.width()) - 100) + "px",
+                left: (GetRand() % parseInt($body.width()) - 150) + "px",
             }).find("div")
                 .css({
                     width: _w + "px",
