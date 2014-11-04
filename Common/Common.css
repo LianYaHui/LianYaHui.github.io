@@ -2,7 +2,7 @@
 
 body {
     color: white;
-    background: url("/Common/Images/body_bg.jpg") no-repeat scroll center top #0d3b6c;
+    background: url("Images/body_bg.jpg") no-repeat scroll center top #0d3b6c;
     width: 100%;
     overflow-x: hidden;
     /*height: 2000px;*/
@@ -72,4 +72,9 @@ body {
 
     .center-Block .contont {
         height: 380px;
+    }
+
+    .left-border-tw
+    {
+        border-left: 1px solid gold;
     }
