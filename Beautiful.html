@@ -1,0 +1,68 @@
+﻿<style>
+
+</style>
+<article id="b_article"></article>
+
+<div class="text-center">
+    <div class="pagination pagination-inverse" id="div_nav_bf">
+        <ul>
+            <li class="previous">
+                <a href="#" class="fui-arrow-left"></a>
+            </li>
+            <li><a href="#fakelink" class="active index">1</a></li>
+            <li><a href="#fakelink">总共<span id="total_sp"></span>页</a></li>
+            <li class="next">
+                <a href="#" class="fui-arrow-right"></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<script>
+    $(function () {
+        var htmlUrl = "beautiful/$date.html",
+            html = [
+                "20141105",
+                "20141106"
+            ];
+
+        var currentIndex = 0,
+            $article = $("#b_article");
+
+        var $div_nav_bf = $("#div_nav_bf");
+        var $index = $div_nav_bf.find(".index");
+
+        $("#total_sp").text(html.length);
+
+        $div_nav_bf.find(".previous").click(function () {
+
+            if (currentIndex === 0) {
+                swal("再往前就没有啦", "你就别再翻啦,喝杯茶放松下心情 :)", "error");
+                return;
+            }
+            currentIndex--;
+            LoadArticle(currentIndex);
+        });
+
+        $div_nav_bf.find(".next").click(function () {
+
+            if (currentIndex === (html.length - 1)) {
+                swal("后面的就木有了", "人生如戏,全靠演技。等楼主更新吧 :)", "error");
+                return;
+            }
+            currentIndex++;
+
+            LoadArticle(currentIndex);
+        });
+
+        //load
+        LoadArticle(currentIndex);
+
+
+
+        function LoadArticle(_index) {
+            var url = htmlUrl.replace("$date", html[_index]);
+            $article.load(url);
+            $index.text(_index + 1);
+        }
+    });
+</script>

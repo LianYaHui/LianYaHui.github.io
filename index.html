@@ -2,11 +2,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title></title>
+    <title>这是Foxzy的博客,欢迎你的来到</title>
+    <meta name="description" content="Foxzy的个人博客，自由和信仰" />
+    <meta name="keywords" content="Foxzy,连亚辉,GitHub,LianYahui,自由" />
+
     <link href="Common/Bootstrap/css/bootstrap.css" rel="stylesheet" />
     <link href="Common/Flat/css/flat-ui.css" rel="stylesheet" />
     <link href="Common/Common.css" rel="stylesheet" />
     <link href="Common/ns.css" rel="stylesheet" />
+    <link href="Common/lib.css" rel="stylesheet" />
+
+    <style>
+        .foxzy {
+            width: 100%;
+            height: 100%;
+        }
+
+        .alink_nav {
+            transition: all 0.5s;
+        }
+
+            .alink_nav:hover {
+                text-shadow: 4px 3px 5px #b6ff9d;
+                padding-left: 5px;
+            }
+    </style>
 </head>
 <body>
     <div id="body_div" style="overflow:auto;">
@@ -54,7 +74,19 @@
                         </li>
                     </ul>
                     -->
+                    <div class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <div class="input-group">
+                                <input class="form-control" type="search" placeholder="现在没什么好搜的">
+                                <span class="input-group-btn">
+                                    <button id="btn_search" class="btn btn-default" type="button"><span class="fui-search"></span></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                     <ul class="nav navbar-nav navbar-right">
+
+
                         <li>
                             <a href="#" title="设置" id="btn_setting">
                                 <span class="visible-sm visible-xs">
@@ -91,7 +123,7 @@
                 <div class="row magintop10">
                     <div class="col-md-5 row-title text-right">小流星的个数</div>
                     <div class="col-md-7">
-                        <input value="1" type="text" id="txt_NumShootStar" placeholder="请输入小流星的个数" class="form-control" />
+                        <input value="2" type="text" id="txt_NumShootStar" placeholder="请输入小流星的个数" class="form-control" />
                     </div>
                 </div>
 
@@ -111,8 +143,18 @@
 
         <div class="container">
             <div class='row'>
-                <div class="col-md-2"></div>
-                <div class="col-md-8">
+                <div class="col-md-2">
+                    <div>
+                        <img src="Common/Images/Foxzy.JPG" class="foxzy img-thumbnail" alt="这是我的头像哈" />
+                    </div>
+
+                    <p>To Be Contiune</p>
+                    <div id="nav_contont">
+                        <p><a href="Beautiful.html" class="alink_nav"><span class="fui-bookmark">美丽心情</span></a></p>
+                        <p><a href="Love/" class="alink_nav"><span class="fui-tag">心灵寄语</span></a></p>
+                    </div>
+                </div>
+                <div class="col-md-8" id="contont_main">
 
                 </div>
                 <div class="col-md-2 left-border-tw">
@@ -131,6 +173,7 @@
     <script src="Common/jquery-2.1.1.js"></script>
     <script src="Common/Flat/js/flat-ui.js"></script>
     <script src="Common/ns.js"></script>
+    <script src="Common/lib.js"></script>
     <script>
         function GetRand() {
             return Math.random() * 10000000;
@@ -150,12 +193,9 @@
             var $setting = $("#setting_div");
             var $ck = $('#ck_showClock').bootstrapSwitch();
             $("#btn_setting").click(function () {
-
-
                 var $setting_div = $setting.animate({
                     top: (100 + "px")
                 }, 1000);
-
             });
 
             $setting.find(".fui-cross").click(function () {
@@ -226,8 +266,24 @@
             });
 
 
+            //默认加载
             $btnSaveSetting.click();
             $btnSaveSetting.data("Notifi", 1);
+
+
+            //搜索
+            $btnSearch = $("#btn_search").click(function () {
+                swal("看看网址后缀!!", "这是静态页面啦，哪里可以收索的啦~。~");
+            });
+
+
+            var $main = $("#contont_main");
+            //Nav
+            $("#nav_contont").find("a").click(function (e) {
+                e.preventDefault();
+                $main.load($(this).attr("href"));
+            });
+            $("#nav_contont").find("a").eq(0).click()
         });
     </script>
 </body>
