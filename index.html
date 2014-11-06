@@ -267,8 +267,11 @@
 
 
             //默认加载
-            $btnSaveSetting.click();
-            $btnSaveSetting.data("Notifi", 1);
+            setTimeout(function () {
+                $btnSaveSetting.click();
+                $btnSaveSetting.data("Notifi", 1);
+            }, 5000);
+
 
 
             //搜索
