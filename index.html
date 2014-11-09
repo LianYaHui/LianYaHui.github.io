@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>这是Foxzy的博客,欢迎你的来到</title>
+    <title>WelCome to Foxzy Style</title>
     <meta name="description" content="Foxzy的个人博客，自由和信仰" />
     <meta name="keywords" content="Foxzy,连亚辉,GitHub,LianYahui,自由" />
 
@@ -11,13 +11,8 @@
     <link href="Common/Common.css" rel="stylesheet" />
     <link href="Common/ns.css" rel="stylesheet" />
     <link href="Common/lib.css" rel="stylesheet" />
-
+   
     <style>
-        .foxzy {
-            width: 100%;
-            height: 100%;
-        }
-
         .alink_nav {
             transition: all 0.5s;
         }
@@ -157,7 +152,7 @@
             <div class='row'>
                 <div class="col-md-2">
                     <div>
-                        <img src="Common/Images/Foxzy.JPG" class="foxzy img-thumbnail" alt="这是我的头像哈" />
+                        <img src="Common/Images/Foxzy.JPG" class="img-thumbnail sparkleh" alt="这是我的头像哈" />
                     </div>
 
                     <p>To Be Contiune</p>
@@ -188,6 +183,7 @@
     </div>
 
     <script src="Common/jquery-2.1.1.js"></script>
+    <script src="Common/magic.js"></script>
     <script src="Common/Flat/js/flat-ui.js"></script>
     <script src="Common/ns.js"></script>
     <script src="Common/lib.js"></script>
@@ -195,6 +191,10 @@
         function GetRand() {
             return Math.random() * 10000000;
         }
+
+        $(function(){
+            $(".sparkleh").sparkleh({color:'rainbow'});
+        });
 
 
         $(function () {
@@ -276,8 +276,7 @@
                     var notification = new NotificationFx({
                         message: '<p>设置成功,正在重新载入。。</p>',
                         layout: 'attached',
-                        effect: 'flip',
-                        type: 'notice'
+                        effect: 'flip'
                     }).show();
                 }
             });
