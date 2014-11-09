@@ -62,7 +62,9 @@
 
         function LoadArticle(_index) {
             var url = htmlUrl.replace("$date", html[_index]);
-            $article.load(url);
+            $article.load(url, function () {
+                sparkleh();
+            });
             $index.text(_index + 1);
         }
     });

@@ -11,16 +11,11 @@
     <link href="Common/Common.css" rel="stylesheet" />
     <link href="Common/ns.css" rel="stylesheet" />
     <link href="Common/lib.css" rel="stylesheet" />
-   
+
     <style>
         .alink_nav {
             transition: all 0.5s;
         }
-
-            .alink_nav:hover {
-                text-shadow: 4px 3px 5px #b6ff9d;
-                padding-left: 5px;
-            }
 
         .scroll-up {
             width: 40px;
@@ -151,7 +146,7 @@
         <div class="container">
             <div class='row'>
                 <div class="col-md-2">
-                    <div>
+                    <div class="img_magic">
                         <img src="Common/Images/Foxzy.JPG" class="img-thumbnail sparkleh" alt="这是我的头像哈" />
                     </div>
 
@@ -192,8 +187,23 @@
             return Math.random() * 10000000;
         }
 
-        $(function(){
-            $(".sparkleh").sparkleh({color:'rainbow'});
+        function sparkleh() {
+            $("img.sparkleh").imagesLoaded(function () {
+                $(this).parent().sparkleh({
+                    count: 30,
+                    color: "rainbow"
+                });
+
+            });
+            $("p").sparkleh({
+                count: 20,
+                color: "rainbow",
+                overlap: 10
+            });
+        }
+
+        $(function () {
+            sparkleh();
         });
 
 
