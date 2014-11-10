@@ -47,6 +47,14 @@ body {
     line-height: 40px;
 }
 
+.row-Slider-title{
+    line-height: 60px;
+}
+
+.row-checkbox-title{
+    line-height: 34px;
+}
+
 .fixedclock {
     position: fixed;
     bottom: 0;
@@ -62,8 +70,8 @@ body {
     border-radius: 5px;
     left: 50%;
     position: fixed;
-    margin-left: -200px;
-    width: 400px;
+    margin-left: -250px;
+    width: 500px;
     height: 450px;
     z-index: 999;
     top: -800px;
