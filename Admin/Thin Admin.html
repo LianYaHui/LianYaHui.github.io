@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-
+ï»¿<!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Thin Admin</title>
@@ -14,7 +12,6 @@
     <link href="Thin%20Admin_files/style.css" rel="stylesheet">
     <link href="Thin%20Admin_files/dashboard.css" rel="stylesheet">
     <link href="Thin%20Admin_files/jquery.css" rel="stylesheet" type="text/css" media="screen">
-
     <style type="text/css">
         .jqstooltip {
             position: absolute;
@@ -201,7 +198,6 @@
                                 <a href="#" class="stats-container">
                                     <div class="stats-heading">Profit</div>
                                     <div class="stats-body-alt">
-
                                         <div class="text-center"><span class="text-top">$</span>345</div>
                                         <small>+4.7% from last period</small>
                                     </div>
@@ -212,7 +208,6 @@
                                 <a href="#" class="stats-container">
                                     <div class="stats-heading">Revenue</div>
                                     <div class="stats-body-alt">
-
                                         <div class="text-center"><span class="text-top">$</span>34.7k</div>
                                         <small>-14.7% from last week</small>
                                     </div>
@@ -223,7 +218,6 @@
                                 <a href="#" class="stats-container">
                                     <div class="stats-heading">Members</div>
                                     <div class="stats-body-alt">
-
                                         <div class="text-center"><span class="text-top"></span>207</div>
                                         <small>new user registered</small>
                                     </div>
@@ -234,7 +228,6 @@
                                 <a href="#" class="stats-container">
                                     <div class="stats-heading">Orders</div>
                                     <div class="stats-body-alt">
-
                                         <div class="text-center"><span class="text-top">$</span>345</div>
                                         <small>new orders received</small>
                                     </div>
@@ -282,7 +275,6 @@
                     </div>
                 </div>
 
-
                 <div class="row">
                     <div class="col-lg-4">
                         <!--new earning start-->
@@ -323,9 +315,6 @@
                         <!--pie chart start-->
                     </div>
                 </div>
-
-
-
 
 
 
@@ -461,16 +450,13 @@
                                                 <td>graemes@gmail.com</td>
                                                 <td><span class="label label-info">Pending</span></td>
                                             </tr>
-
                                             <tr>
                                                 <td><input class="checkbox1" type="checkbox"></td>
                                                 <td>Peter</td>
                                                 <td>peters@live.com</td>
                                                 <td><span class="label label-success">Approved</span></td>
                                             </tr>
-
                                         </tbody>
-
                                         <tfoot>
                                             <tr class="active">
                                                 <td colspan="4" class="text-left table-bg">
@@ -487,16 +473,11 @@
                                     </table>
                                 </div>
 
-
                             </div>
                             <!-- /widget-content -->
                         </div>
                     </div>
                 </div>
-
-
-
-
 
 
 
@@ -554,9 +535,7 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <!-- /comment -->
-
                                 </div>
                                 <div class="chat-form">
                                     <div class="input-cont">
@@ -798,7 +777,6 @@
                                         <strong>Warning!</strong> Best check yo self, you're not looking too good.
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
@@ -807,22 +785,60 @@
         </div>
     </div>
     <div class="bottom-nav footer"> 2013 &#169; Thin Admin by Riaxe Systems. </div>
-
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-
 
     <script src="../Common/jquery-2.1.1.js"></script>
     <script src="Thin%20Admin_files/bootstrap.js"></script>
-    <script src="Thin%20Admin_files/smooth-sliding-menu.js"></script>
-    <!--<script src="Thin%20Admin_files/jquery_003.js"></script>-->
+
+
     <script>
         $(function () {
-            alert("hello");
+            var $nav = $("#nav");
+
+            $nav.find('li').on('click', function (e) {
+                jQuerythis = jQuery(this);
+                e.stopPropagation();
+
+                if (jQuerythis.has('ul').length) {
+                    e.preventDefault();
+                    var visibleUL = $nav.find('ul:visible').length;
+                    var ele_class = jQuery('ul', this).attr("class");
+                    if (ele_class != 'sub-menu opened') {
+                        jQuery('').find('ul:visible').slideToggle("normal");
+                        $nav.find('ul:visible').removeClass("opened");
+                        jQuery('.icon-angle-down').addClass("closing");
+                        jQuery('.closing').removeClass("icon-angle-down");
+                        jQuery('.closing').addClass("icon-angle-left");
+                        jQuery('.icon-angle-left').removeClass("closing");
+                    }
+                    jQuery('ul', this).slideToggle("normal");
+                    if (ele_class == 'sub-menu opened') {
+                        jQuery('ul', this).removeClass("opened");
+                        jQuery('.arrow', this).removeClass("icon-angle-down");
+                        jQuery('.arrow', this).addClass("icon-angle-left");
+                    }
+                    else {
+                        jQuery('ul', this).addClass("opened");
+                        jQuery('.arrow', this).removeClass("icon-angle-left");
+                        jQuery('.arrow', this).addClass("icon-angle-down");
+                    }
+                }
+            });
+            $nav.find("a").click(function (args) {
+                args.preventDefault();
+
+
+                var $a = $(this),
+                    href = $.trim($a.attr("href"));
+                if (href === "" || href === "#")
+                    return;
+                else
+                    alert(href);
+            });
         });
     </script>
 
-
-    <!--µ÷É«°å-->
+    <!--ï¿½ï¿½É«ï¿½ï¿½-->
     <!--switcher html start-->
     <!--<div class="demo_changer" style="right: -145px;">
         <div class="demo-icon"></div>
