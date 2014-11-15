@@ -1,19 +1,10 @@
 
+
 body {
-	background-color: #54364a;
-	background-size: cover;
-	background-image:url(../images/a.jpg);
+background-color: #54364a;
+background-size: cover;
+background-image:url(../images/a.jpg);
 }
-
-.background-span{
-	margin: 8px;
-	line-height: 30px;
-}
-.background-span img:hover{
-	box-shadow: 0 0 10px yellow;
-	cursor: pointer;
-}
-
 
 .header {
 	background-color: rgba(0, 0, 0, 0.25);

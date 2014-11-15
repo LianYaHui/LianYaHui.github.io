@@ -214,15 +214,28 @@
                 
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                       <img src="images/a.jpg" style="width: 20px;" alt="">
+                       <img src="images/a.jpg" style="width: 20px;" alt="" id="show_backImg">
                     </a>
-                    <ul  class="dropdown-menu">
-                    <li><img src="images/b.jpg" style="width: 20px;" alt=""></li>
-                     <li><img src="images/c.jpg" style="width: 20px;" alt=""></li>
-                      <li><img src="images/d.jpg" style="width: 20px;" alt=""></li>
-                       <li><img src="images/e.jpg" style="width: 20px;" alt=""></li>
-                        <li><img src="images/f.jpg" style="width: 20px;" alt=""></li>
-                         <li><img src="images/b.jpg" style="width: 20px;" alt=""></li>
+                    <ul  class="dropdown-menu" id="ui-ul">
+                    <li>
+                    <span class='background-span'>
+                         <img src="images/a.jpg"  alt="">
+                        <img src="images/b.jpg"  alt="">
+                        <img src="images/c.jpg"  alt="">
+                        <img src="images/d.jpg"  alt="">
+                        <img src="images/e.jpg"  alt="">
+                    </span>
+                    </li>
+                    <li>
+                        <span class="background-span">
+                        <img src="images/f.jpg"  alt="">
+                        <img src="images/g.jpg"  alt="">
+                        <img src="images/h.jpg"  alt="">
+                        <img src="images/i.jpg"  alt="">
+                        <img src="images/j.jpg"  alt="">
+                        </span>
+
+                    </li>
                     </ul>
                 </li>
 
@@ -491,8 +504,17 @@
 
     <script>
         $(function () {
-            var $nav = $("#nav")
-                  $contont=$("#divContont") ;
+            var $nav = $("#nav"),$body=$(document.body),
+                  $ui=$("#ui-ul");
+                  
+              var $show_backImg=$("#show_backImg"),$contont=$("#divContont");     
+
+             $ui.find("img").click(function(){
+                var src=$(this).attr("src");
+
+                $show_backImg.attr("src",src);
+                $body.css("background-image","url("+src+")");
+             });     
 
 
              $contont.load("index_contont.html"); 
