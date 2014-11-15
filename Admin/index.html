@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -41,15 +41,18 @@
 <body>
     <div class="container">
         <div class="top-navbar header b-b">
-            <a data-original-title="Toggle navigation" class="toggle-side-nav pull-left" href="#"> <i class="icon-reorder"></i>
+            <a data-original-title="Toggle navigation" class="toggle-side-nav pull-left" href="#">
+                <i class="icon-reorder"></i>
             </a>
             <div class="brand pull-left">
                 <a href="http://www.riaxe.com/marketplace/thin-admin/index.html">
-                    <img src="Thin%20Admin_files/logo.png" height="33" width="147"></a>
+                    <img src="Thin%20Admin_files/logo.png" height="33" width="147">
+                </a>
             </div>
             <ul class="nav navbar-nav navbar-right  hidden-xs">
                 <li class="dropdown">
-                    <a data-toggle="dropdown" class="dropdown-toggle" href="#"> <i class="icon-warning-sign"></i>
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                        <i class="icon-warning-sign"></i>
                         <span class="badge">5</span>
                     </a>
                     <ul class="dropdown-menu extended notification">
@@ -176,7 +179,8 @@
                         <li>
                             <a href="#">
                                 <span class="photo">
-                                    <img src="Thin%20Admin_files/profile.png" height="34" width="34"></span>
+                                    <img src="Thin%20Admin_files/profile.png" height="34" width="34">
+                                </span>
                                 <span class="subject">
                                     <span class="from">John Doe</span>
                                     <span class="time">Just Now</span>
@@ -187,7 +191,8 @@
                         <li>
                             <a href="#">
                                 <span class="photo">
-                                    <img src="Thin%20Admin_files/profile.png" height="34" width="34"></span>
+                                    <img src="Thin%20Admin_files/profile.png" height="34" width="34">
+                                </span>
                                 <span class="subject">
                                     <span class="from">John Doe</span>
                                     <span class="time">35 mins</span>
@@ -198,7 +203,8 @@
                         <li>
                             <a href="#">
                                 <span class="photo">
-                                    <img src="Thin%20Admin_files/profile.png" height="34" width="34"></span>
+                                    <img src="Thin%20Admin_files/profile.png" height="34" width="34">
+                                </span>
                                 <span class="subject">
                                     <span class="from">John Doe</span>
                                     <span class="time">5 hours</span>
@@ -211,31 +217,31 @@
                         </li>
                     </ul>
                 </li>
-                
+
                 <li class="dropdown">
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                       <img src="images/a.jpg" style="width: 20px;" alt="" id="show_backImg">
+                        <img src="images/a.jpg" style="width: 20px;" alt="" id="show_backImg">
                     </a>
-                    <ul  class="dropdown-menu" id="ui-ul">
-                    <li>
-                    <span class='background-span'>
-                         <img src="images/a.jpg"  alt="">
-                        <img src="images/b.jpg"  alt="">
-                        <img src="images/c.jpg"  alt="">
-                        <img src="images/d.jpg"  alt="">
-                        <img src="images/e.jpg"  alt="">
-                    </span>
-                    </li>
-                    <li>
-                        <span class="background-span">
-                        <img src="images/f.jpg"  alt="">
-                        <img src="images/g.jpg"  alt="">
-                        <img src="images/h.jpg"  alt="">
-                        <img src="images/i.jpg"  alt="">
-                        <img src="images/j.jpg"  alt="">
-                        </span>
+                    <ul class="dropdown-menu" id="ui-ul">
+                        <li>
+                            <span class='background-span'>
+                                <img src="images/a.jpg" alt="">
+                                <img src="images/b.jpg" alt="">
+                                <img src="images/c.jpg" alt="">
+                                <img src="images/d.jpg" alt="">
+                                <img src="images/e.jpg" alt="">
+                            </span>
+                        </li>
+                        <li>
+                            <span class="background-span">
+                                <img src="images/f.jpg" alt="">
+                                <img src="images/g.jpg" alt="">
+                                <img src="images/h.jpg" alt="">
+                                <img src="images/i.jpg" alt="">
+                                <img src="images/j.jpg" alt="">
+                            </span>
 
-                    </li>
+                        </li>
                     </ul>
                 </li>
 
@@ -276,7 +282,8 @@
                 </li>
             </ul>
             <form class="pull-right">
-                <input placeholder="Search..." class="search" id="search-input" type="search"></form>
+                <input placeholder="Search..." class="search" id="search-input" type="search">
+            </form>
         </div>
     </div>
     <div class="wrapper">
@@ -380,7 +387,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="http://www.riaxe.com/marketplace/thin-admin/dropzone_upload.html">
+                                <a href="DropUpLoad.html">
                                     <i class="icon-angle-right"></i>
                                     Dropzone File Upload
                                 </a>
@@ -504,24 +511,26 @@
 
     <script>
         $(function () {
-            var $nav = $("#nav"),$body=$(document.body),
-                  $ui=$("#ui-ul");
-                  
-              var $show_backImg=$("#show_backImg"),$contont=$("#divContont");     
+            var $nav = $("#nav"), $body = $(document.body),
+                  $ui = $("#ui-ul");
 
-             $ui.find("img").click(function(){
-                var src=$(this).attr("src");
+            var $show_backImg = $("#show_backImg"), $contont = $("#divContont");
 
-                $show_backImg.attr("src",src);
-                $body.css("background-image","url("+src+")");
-             });     
+            $ui.find("img").click(function () {
+                var src = $(this).attr("src");
+
+                $show_backImg.attr("src", src);
+                $body.css("background-image", "url(" + src + ")");
+            });
 
 
-             $contont.load("index_contont.html"); 
+            $contont.load("index_contont.html");
 
             $nav.find('li').on('click', function (e) {
                 jQuerythis = jQuery(this);
                 e.stopPropagation();
+
+
 
                 if (jQuerythis.has('ul').length) {
                     e.preventDefault();
@@ -547,6 +556,9 @@
                         jQuery('.arrow', this).addClass("icon-angle-down");
                     }
                 }
+
+                $nav.find("li").removeClass("current");
+                jQuerythis.addClass("current");
             });
             $nav.find("a").click(function (args) {
                 args.preventDefault();
@@ -556,8 +568,9 @@
                     href = $.trim($a.attr("href"));
                 if (href === "" || href === "#")
                     return;
-                else
-                    alert(href);
+                else {
+                    $contont.load(href);
+                }
             });
         });
     </script>
