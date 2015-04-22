@@ -3,12 +3,13 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="description" content="rainnySun，自由和信仰" />
-    <meta name="keywords" content="梁晓华,对不起,浪漫,rain,rainnySun" />
+    <meta name="keywords" content="梁晓华,对不起,浪漫,rain,rainnySun, Sorry for Rain,sorry" />
 
     <script>
         var c = document.createElement("canvas");
         if (!c.getContext) {
             alert("你的浏览器不支持,请使用IE10以上,或者谷歌浏览器");
+            location.href = "http://www.baidu.com";
         }
 
         function GetRand() {
@@ -41,6 +42,28 @@
             overflow: hidden;
         }
 
+        .full-page {
+            width: 100%;
+            height: 100%;
+        }
+
+        .location-0 {
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        .location-mes {
+            position: fixed;
+            bottom: 100px;
+            left: 40px;
+            text-shadow: 0 0 4px #d6eb19;
+        }
+
+            .location-mes :hover {
+                text-shadow: 0 0 5px #fad80d;
+            }
+
         .m-left {
             width: 200px;
             float: left;
@@ -68,7 +91,7 @@
         }
     </style>
 
-    <title></title>
+    <title> Sorry for Rain</title>
 </head>
 <body>
     <div id="body_div" class="main-block">
@@ -79,11 +102,15 @@
     </div>
 
 
+
+
     <div>
         <!--参数-->
         <input type="hidden" id="txt_NumShootStar" value="5" />
 
     </div>
+
+
     <div id="music_block" class="bg-opacity">
         <div class="left m-left">
             <div id="jquery_jplayer_1" class="cp-jplayer"></div>
@@ -114,6 +141,9 @@
         </div>
     </div>
 
+    <div class="location-mes">
+        点击这里听下音乐,认真听哦
+    </div>
 
     <script src="/Common/jquery-2.1.1.js"></script>
     <script src="/Common/lib.js"></script>
@@ -154,6 +184,17 @@
                 left: (-200 + "px")
             }, 1000);
             $music.find(".music").click(function () {
+                if ($bd.data("loadHeart") !== true) {
+                    $bd.data("loadHeart", true);
+                    $(".location-mes").remove();
+                    ///step1
+                    $bd.load("heartSorry.html");
+
+                }
+
+
+
+
                 if (showIn) {
                     $music.animate({
                         left: 0
@@ -176,8 +217,7 @@
 
 
 
-            ///step1
-            $bd.load("heartSorry.html");
+
         });
     </script>
 </body>

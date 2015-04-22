@@ -1,6 +1,7 @@
 ﻿
 <style>
     #loveHeart {
+        float: left;
         width: 670px;
         height: 625px;
     }
@@ -54,11 +55,12 @@
 
     #code {
         float: left;
-        width: 440px;
+        width: 300px;
         height: 400px;
-        color: #333;
+        color: #52ffef;
         font-family: "Consolas","Monaco","Bitstream Vera Sans Mono","Courier New","sans-serif";
         font-size: 12px;
+        display: none;
     }
 
         #code .string {
@@ -74,28 +76,77 @@
             margin-left: 15px;
         }
 
+        #code .light {
+            color: #ed51f3;
+            text-shadow: 3px 3px 5px #00ff21;
+            font-size: 18px;
+        }
+
+
         #code .space {
             margin-left: 7px;
         }
 
         #code .comments {
-            color: #3f7f5f;
+            color: #ffaf95;
+            line-height: 20px;
+            text-indent: 2em;
         }
+
+    .c1 {
+        color: #7af76b;
+        line-height: 20px;
+        text-indent: 2em;
+    }
+
+    .c2 {
+        color: #7be2fe;
+        line-height: 20px;
+        text-indent: 2em;
+    }
 </style>
 
-<div id="loveHeart" class="block-center">
-    <canvas id="garden"></canvas>
-    <div id="words">
-        <div id="messages">
-            Baby U and I.
-            <div id="loveu">
-                Sorry
-                <br />
-                <div class="signature">- BF</div>
+<div class="block-center">
+    <div id="loveHeart">
+        <canvas id="garden"></canvas>
+        <div id="words">
+            <div id="messages">
+                Sorry for Rain
+                <div id="loveu">
+                    So Sorry
+                    <br />
+                    <div class="signature">- RainnySun</div>
+                </div>
             </div>
         </div>
     </div>
+
+    <div id="code">
+        <span class="light">至尊敬的梁晓华大佬:</span>
+        <br />
+        <span class="comments">首先我郑重的向你道歉下，对于当初说的话是完全没有要贬低您的意思！！</span>
+        <br />
+
+        <span class="comments">
+            其次我保证: 以后无条件服从大佬你的命令,要时时刻刻赞美大佬你的美丽和智慧,处理事情意见发生偏歧时，以大佬你的意见作为标准解决方案。
+
+            <br /><br />
+            <span class="comments">
+                PS:大佬你不要怪我没有艺术细胞啊。。。我删了有改改了又删了好几次了。
+            </span>
+
+            <span class="c1">
+                PPS:未完待续。。。。我保证还有，，这不是全部！
+            </span>
+
+            <span class="comments">
+                PPPS ^.^ :看在我这么可怜的份上你就原谅我吧   ￥.￥
+            </span>
+    </div>
 </div>
+
+
+
 <script src="../Love/garden.js"></script>
 
 <script>
@@ -111,6 +162,14 @@
         setTimeout(function () {
             adjustCodePosition();
             startHeartAnimation();
-        }, 1000);
+        }, 8000);
+
+
+        setTimeout(function () {
+            adjustCodePosition();
+            $("#code").css("display", "block");
+            $("#code").typewriter();
+        }, 10000);
+
     });
 </script>
