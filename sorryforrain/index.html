@@ -10,6 +10,10 @@
         if (!c.getContext) {
             alert("你的浏览器不支持,请使用IE10以上,或者谷歌浏览器");
         }
+
+        function GetRand() {
+            return Math.random() * 10000000;
+        }
     </script>
 
 
@@ -20,6 +24,12 @@
 
 
     <style>
+        body {
+            padding: 0;
+            margin: 0;
+            border-width: 0;
+        }
+
         .bg-opacity {
             background-color: rgba(117, 12, 173, 0.87);
             width: 230px;
@@ -50,48 +60,59 @@
             margin-left: 8px;
             cursor: pointer;
         }
+
+        .main-block {
+            margin: 0 auto;
+            width: 1024px;
+            overflow: auto;
+        }
     </style>
 
     <title></title>
 </head>
 <body>
-    <div id="body_div" style="overflow:auto;">
-        <div id="music_block" class="bg-opacity">
-            <div class="left m-left">
-                <div id="jquery_jplayer_1" class="cp-jplayer"></div>
-                <div class="prototype-wrapper">
+    <div id="body_div" class="main-block">
 
-                    <div id="cp_container_1" class="cp-container">
-                        <div class="cp-buffer-holder">
-                            <!-- .cp-gt50 only needed when buffer is > than 50% -->
-                            <div class="cp-buffer-1"></div>
-                            <div class="cp-buffer-2"></div>
-                        </div>
-                        <div class="cp-progress-holder">
-                            <!-- .cp-gt50 only needed when progress is > than 50% -->
-                            <div class="cp-progress-1"></div>
-                            <div class="cp-progress-2"></div>
-                        </div>
-                        <div class="cp-circle-control"></div>
-                        <ul class="cp-controls">
-                            <li><a class="cp-play" tabindex="1">play</a></li>
-                            <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="m-right">
-                <span class="music"></span>
-            </div>
-        </div>
 
 
 
     </div>
 
 
+    <div>
+        <!--参数-->
+        <input type="hidden" id="txt_NumShootStar" value="5" />
 
+    </div>
+    <div id="music_block" class="bg-opacity">
+        <div class="left m-left">
+            <div id="jquery_jplayer_1" class="cp-jplayer"></div>
+            <div class="prototype-wrapper">
+
+                <div id="cp_container_1" class="cp-container">
+                    <div class="cp-buffer-holder">
+                        <!-- .cp-gt50 only needed when buffer is > than 50% -->
+                        <div class="cp-buffer-1"></div>
+                        <div class="cp-buffer-2"></div>
+                    </div>
+                    <div class="cp-progress-holder">
+                        <!-- .cp-gt50 only needed when progress is > than 50% -->
+                        <div class="cp-progress-1"></div>
+                        <div class="cp-progress-2"></div>
+                    </div>
+                    <div class="cp-circle-control"></div>
+                    <ul class="cp-controls">
+                        <li><a class="cp-play" tabindex="1">play</a></li>
+                        <li><a class="cp-pause" style="display:none;" tabindex="1">pause</a></li> <!-- Needs the inline style here, or jQuery.show() uses display:inline instead of display:block -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="m-right">
+            <span class="music"></span>
+        </div>
+    </div>
 
 
     <script src="/Common/jquery-2.1.1.js"></script>
@@ -107,7 +128,7 @@
             var $bd = $("#body_div").height(document.documentElement.clientHeight);
 
             var $body = $(document.body).sparkleh({
-                count: 50,
+                count: 100,
                 color: "rainbow",
                 overlap: 10
             });
@@ -145,7 +166,18 @@
                 }
                 showIn = !showIn;
             });
+            ///End
 
+            ///begin Star
+            var $SstarEle = $("<div></div>");
+            $body.append($SstarEle);
+            $SstarEle.load("/Plus/ShootStar.Html");
+            //End
+
+
+
+            ///step1
+            $bd.load("heartSorry.html");
         });
     </script>
 </body>

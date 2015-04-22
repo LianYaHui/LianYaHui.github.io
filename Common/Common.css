@@ -47,11 +47,11 @@ body {
     line-height: 40px;
 }
 
-.row-Slider-title{
+.row-Slider-title {
     line-height: 60px;
 }
 
-.row-checkbox-title{
+.row-checkbox-title {
     line-height: 34px;
 }
 
@@ -83,7 +83,11 @@ body {
         height: 380px;
     }
 
-    .left-border-tw
-    {
-        border-left: 1px solid gold;
-    }
+.left-border-tw {
+    border-left: 1px solid gold;
+}
+
+
+.block-center {
+    margin: 0 auto;
+}
