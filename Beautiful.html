@@ -21,12 +21,7 @@
     $(function () {
         var htmlUrl = "beautiful/$date.html",
             html = [
-                "20141224_1",
-                "20141224",
-                "20141109",
-                "20141107",
-                "20141106",
-                "20141105"
+                { title: "不打扰，是愿你被温柔对待", href: "20160112" }
             ];
 
         var currentIndex = 0,
@@ -64,10 +59,15 @@
 
 
         function LoadArticle(_index) {
-            var url = htmlUrl.replace("$date", html[_index]);
+            var htmlObj = html[_index];
+
+            var url = htmlUrl.replace("$date", htmlObj.href);
             $article.load(url, function () {
                 sparkleh();
             });
+
+            document.title = htmlObj.title;
+
             $index.text(_index + 1);
         }
     });

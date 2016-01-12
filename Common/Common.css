@@ -92,5 +92,15 @@ body {
     margin: 0 auto;
 }
 
-.footer_nav{
+.italic {
+    text-align: center;
+    font-style: italic;
+}
+
+    .italic p {
+        margin: 0;
+    }
+
+.footer_nav {
+    background-color: transparent;
 }
