@@ -161,11 +161,6 @@
                                 <span class="fui-bookmark">美丽心情</span>
                             </a>
                         </p>
-                        <p>
-                            <a href="Love/" class="alink_nav">
-                                <span class="fui-tag">心灵寄语</span>
-                            </a>
-                        </p>
                     </div>
                 </div>
                 <div class="col-md-8" id="contont_main"></div>
@@ -320,11 +315,11 @@
 
             var $main = $("#contont_main");
             //Nav
-            $("#nav_contont").find("a").click(function (e) {
+            $("#nav_contont").find("a.alink_nav").click(function (e) {
                 e.preventDefault();
                 $main.load($(this).attr("href"));
             });
-            $("#nav_contont").find("a").eq(0).click();
+            $("#nav_contont").find("a.alink_nav").eq(0).click();
 
             $("#btn_ReTop").click(function () {
                 $bd.animate({
