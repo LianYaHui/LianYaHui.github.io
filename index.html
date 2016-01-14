@@ -122,14 +122,14 @@
                 <div class="row">
                     <div class="col-md-4 row-Slider-title text-right">闪亮星星的个数</div>
                     <div class="col-md-8">
-                        <input data-min="0" data-max='30' class="Slider-foxzy" data-grid='true' id="txt_NumStar" type="text" />
+                        <input data-min="10" data-max='30' class="Slider-foxzy" data-grid='true' id="txt_NumStar" type="text" />
                     </div>
                 </div>
 
                 <div class="row magintop10">
                     <div class="col-md-4 row-Slider-title text-right">小流星的个数</div>
                     <div class="col-md-8">
-                        <input class="Slider-foxzy" data-min="0" data-max='15' data-grid='true' type="text" id="txt_NumShootStar" />
+                        <input  class="Slider-foxzy" data-min="6" data-max='15' data-grid='true' type="text" id="txt_NumShootStar" />
                     </div>
                 </div>
 
@@ -158,7 +158,7 @@
                     <div id="nav_contont">
                         <p>
                             <a href="Beautiful.html" class="alink_nav">
-                                <span class="fui-bookmark">美丽心情</span>
+                                <span class="fui-bookmark">偷笑别人花了脸</span>
                             </a>
                         </p>
                     </div>
@@ -166,10 +166,10 @@
                 <div class="col-md-8" id="contont_main"></div>
                 <div class="col-md-2 left-border-tw">
                     <p>浮云</p>
-                    <div>
+                    <!--<div>
                         <a href="Love/">未完待续</a>
                     </div>
-                    <div><a href="Admin/index.html">Admin Templite</a></div>
+                    <div><a href="Admin/index.html">Admin Templite</a></div>-->
                 </div>
 
             </div>
@@ -243,6 +243,8 @@
 
             $(".Slider-foxzy").ionRangeSlider();
 
+
+           
             var $btnSaveSetting = $("#btn_SaveSetting").click(function () {
                 var isShowClock = $ck.bootstrapSwitch("state");
                 if (isShowClock) {
