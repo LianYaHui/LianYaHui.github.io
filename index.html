@@ -43,42 +43,6 @@
                     <a class="navbar-brand" href="https://github.com/LianYaHui/LianYaHui.github.io">Fork in GitHub</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <!--<ul class="nav navbar-nav">
-                        <li class="active">
-                            <a href="#">Home</a>
-                        </li>
-                        <li>
-                            <a href="#about">About</a>
-                        </li>
-                        <li>
-                            <a href="#contact">Contact</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                Dropdown <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li>
-                                    <a href="#">Action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Another action</a>
-                                </li>
-                                <li>
-                                    <a href="#">Something else here</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="dropdown-header">Nav header</li>
-                                <li>
-                                    <a href="#">Separated link</a>
-                                </li>
-                                <li>
-                                    <a href="#">One more separated link</a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                    -->
                     <div class="navbar-form navbar-left" role="search">
                         <div class="form-group">
                             <div class="input-group">
@@ -129,7 +93,7 @@
                 <div class="row magintop10">
                     <div class="col-md-4 row-Slider-title text-right">小流星的个数</div>
                     <div class="col-md-8">
-                        <input  class="Slider-foxzy" data-min="6" data-max='15' data-grid='true' type="text" id="txt_NumShootStar" />
+                        <input class="Slider-foxzy" data-min="6" data-max='15' data-grid='true' type="text" id="txt_NumShootStar" />
                     </div>
                 </div>
 
@@ -191,26 +155,23 @@
             return Math.random() * 10000000;
         }
 
-        function sparkleh() {
-            $("img.sparkleh").imagesLoaded(function () {
+        function sparkleh(container) {
+
+            var $container = $(container);
+
+            $container.find("img.sparkleh").imagesLoaded(function () {
                 $(this).parent().sparkleh({
                     count: 30,
                     color: "rainbow"
                 });
 
             });
-            $("p").sparkleh({
+            $container.find("p").sparkleh({
                 count: 20,
                 color: "rainbow",
                 overlap: 10
             });
         }
-
-        $(function () {
-            sparkleh();
-
-        });
-
 
         $(function () {
             //footLoad
@@ -244,7 +205,7 @@
             $(".Slider-foxzy").ionRangeSlider();
 
 
-           
+
             var $btnSaveSetting = $("#btn_SaveSetting").click(function () {
                 var isShowClock = $ck.bootstrapSwitch("state");
                 if (isShowClock) {
@@ -328,6 +289,9 @@
                     scrollTop: 0
                 }, 1000);
             });
+
+            //加载动画
+            sparkleh(document.body);
         });
     </script>
 </body>
