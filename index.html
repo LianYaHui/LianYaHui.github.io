@@ -177,8 +177,8 @@
             //footLoad
             var $footer = $("#footer"),
                 $body = $(document.body);
-
             $footer.load("footer.html");
+
 
             var $bd = $("#body_div").height(document.documentElement.clientHeight);
             //setting
@@ -186,7 +186,7 @@
             var $setting = $("#setting_div");
             var $ck = $('#ck_showClock').bootstrapSwitch();
             $("#btn_setting").click(function () {
-                var $setting_div = $setting.animate({
+                $setting.animate({
                     top: (100 + "px")
                 }, 1000);
             });
@@ -253,7 +253,7 @@
                 }
 
                 if ($btnSaveSetting.data("Notifi") === 1) {
-                    var notification = new NotificationFx({
+                     new NotificationFx({
                         message: '<p>设置成功,正在重新载入。。</p>',
                         layout: 'attached',
                         effect: 'flip'
