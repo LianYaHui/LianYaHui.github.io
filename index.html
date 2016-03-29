@@ -21,7 +21,7 @@
             -webkit-transition: all 0.5s;
             transition: all 0.5s;
         }
-        
+
         .scroll-up {
             width: 40px;
             height: 40px;
@@ -53,7 +53,7 @@
                                 <span class="input-group-btn">
                                     <button id="btn_search" class="btn btn-default" type="button">
                                         <span class="fui-search"></span>
-                                </button>
+                                    </button>
                                 </span>
                             </div>
                         </div>
@@ -176,20 +176,29 @@
             });
         }
 
+        function GetRequest() {
+            var url = location.search; //获取url中"?"符后的字串
+            var theRequest = new Object();
+            if (url.indexOf("?") != -1) {
+                var str = url.substr(1);
+                strs = str.split("&");
+                for (var i = 0; i < strs.length; i++) {
+                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+                }
+            }
+            return theRequest;
+        }
+
         $(function () {
             //footLoad
             var $footer = $("#footer"),
                 $body = $(document.body);
             $footer.load("footer.html");
 
-            /**
-             * [$bd description]
-             * @type {[type]}
-             */
             var $bd = $("#body_div").height(document.documentElement.clientHeight);
             //setting
-            
-            
+           
+
             var $setting = $("#setting_div");
             var $ck = $('#ck_showClock').bootstrapSwitch();
             $("#btn_setting").click(function () {
@@ -210,8 +219,6 @@
             $body.append($SstarEle);
 
             $(".Slider-foxzy").ionRangeSlider();
-
-
 
             var $btnSaveSetting = $("#btn_SaveSetting").click(function () {
                 var isShowClock = $ck.bootstrapSwitch("state");
@@ -260,7 +267,7 @@
                 }
 
                 if ($btnSaveSetting.data("Notifi") === 1) {
-                     new NotificationFx({
+                    new NotificationFx({
                         message: '<p>设置成功,正在重新载入。。</p>',
                         layout: 'attached',
                         effect: 'flip'
@@ -282,7 +289,7 @@
                 swal("看看网址后缀!!", "这是静态页面啦，哪里可以收索的啦~。~");
             });
 
-
+          
             var $main = $("#contont_main");
             //Nav
             $("#nav_contont").find("a.alink_nav").click(function (e) {
