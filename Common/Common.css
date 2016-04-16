@@ -87,11 +87,6 @@ body {
     border-left: 1px solid gold;
 }
 
-
-.block-center {
-    margin: 0 auto;
-}
-
 .italic {
     text-align: center;
     font-style: italic;
