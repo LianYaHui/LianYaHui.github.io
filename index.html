@@ -272,6 +272,12 @@
 
             //默认加载
             setTimeout(function () {
+                if (document.body.clientWidth < 768) {
+                    $("#txt_NumShootStar").val(0);
+                    alert("no shoot");
+                }
+                
+
                 $btnSaveSetting.click();
                 $btnSaveSetting.data("Notifi", 1);
             }, 5000);
