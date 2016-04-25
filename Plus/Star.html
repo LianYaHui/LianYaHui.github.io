@@ -2,9 +2,6 @@
     .fx-star {
         text-shadow: 0 0 10px #f5ff00;
         border-radius: 50%;
-        -moz-animation: rote360 5s infinite;
-        -o-animation: rote360 5s infinite;
-        -webkit-animation: rote360 5s infinite;
         animation: rote360 5s infinite;
         transform-origin: center center;
         font-size: 10px;
@@ -56,7 +53,6 @@
 </style>
 
 <script>
-
     $(function () {
         function Star(obj) {
             var timer = (GetRand() % 5000 + 3000);
@@ -70,7 +66,6 @@
             });
 
             setTimeout(Star, timer, obj);
-
         }
 
 
@@ -78,16 +73,13 @@
         var height = document.documentElement.clientHeight;
         height = height > $body.height() ? height : $body.height();
 
-        var numStar = $("#txt_NumStar").val();
-        numStar = parseInt(numStar);
-        var starNum = numStar;
+        var numStar = $body.data("NumS");
 
+        var starNum = numStar;
 
         var starHtml = "";
         for (var i = 0; i < starNum; i++)
             starHtml += ("<span class='fui-star fx-star'></span>");
-
-
 
         var stars = $(starHtml).each(function (i, span) {
             Star(span);

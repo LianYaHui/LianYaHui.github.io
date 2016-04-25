@@ -58,20 +58,7 @@
                             </div>
                         </div>
                     </div>
-                    <ul class="nav navbar-nav navbar-right">
 
-                        <li>
-                            <a href="#" title="设置" id="btn_setting">
-                                <span class="visible-sm visible-xs">
-                                    设置
-                                    <span class="fui-gear"></span>
-                                </span>
-                                <span class="visible-md visible-lg">
-                                    <span class="fui-gear"></span>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
                 <!--/.nav-collapse -->
             </div>
@@ -79,44 +66,9 @@
 
         <div class="padding30"></div>
 
-        <!--setting-->
-        <div id="setting_div" class="center-Block ">
-            <div class="magin10 container-fluid contont">
-                <div class="text-right pointerIcon">
-                    <span class="fui-cross"></span>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-4 row-Slider-title text-right">闪亮星星的个数</div>
-                    <div class="col-md-8">
-                        <input data-min="10" data-max='30' class="Slider-foxzy" data-grid='true' id="txt_NumStar" type="text" />
-                    </div>
-                </div>
-
-                <div class="row magintop10">
-                    <div class="col-md-4 row-Slider-title text-right">小流星的个数</div>
-                    <div class="col-md-8">
-                        <input class="Slider-foxzy" data-min="6" data-max='15' data-grid='true' type="text" id="txt_NumShootStar" />
-                    </div>
-                </div>
-
-                <div class="row magintop10">
-                    <div class="col-md-4 row-checkbox-title text-right">显示时钟</div>
-                    <div class="col-md-8">
-                        <input type="checkbox" data-toggle="switch" id="ck_showClock" />
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="text-center in-button">
-                <button class="btn btn-primary" id="btn_SaveSetting">保存</button>
-            </div>
-        </div>
-
         <div class="container">
             <div class='row'>
-                <div class="col-md-2 hidden-xs">
+                <div class="col-md-2 hidden-xs col-sm-2">
                     <div class="img_magic">
                         <img src="Common/Images/lianyahui.jpg" class="img-thumbnail sparkleh" alt="这是我的头像哈" />
                     </div>
@@ -130,8 +82,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-8 col-xs-12" id="contont_main"></div>
-                <div class="col-md-2 hidden-xs left-border-tw">
+                <div class="col-md-8 col-xs-12 col-sm-8" id="contont_main"></div>
+                <div class="col-md-2 hidden-xs left-border-tw col-sm-2">
                     <p>浮云</p>
                 </div>
             </div>
@@ -188,26 +140,13 @@
             //footLoad
             var $footer = $("#footer"),
                 $body = $(document.body);
-            $footer.load("footer.html");
+
+            //如果需要加载footer.html 请取消下列注释
+            //$footer.load("footer.html");
 
             var $bd = $("#body_div").height(document.documentElement.clientHeight);
+
             //setting
-           
-
-            var $setting = $("#setting_div");
-            var $ck = $('#ck_showClock').bootstrapSwitch();
-            $("#btn_setting").click(function () {
-                $setting.animate({
-                    top: (100 + "px")
-                }, 1000);
-            });
-
-            $setting.find(".fui-cross").click(function () {
-                $setting.animate({ top: "-700px" }, 1000);
-            });
-
-            var $clockEle = $("<div ></div>");
-            $body.append($clockEle);
             var $starEle = $("<div></div>");
             $body.append($starEle);
             var $SstarEle = $("<div></div>");
@@ -215,70 +154,28 @@
 
             $(".Slider-foxzy").ionRangeSlider();
 
-            var $btnSaveSetting = $("#btn_SaveSetting").click(function () {
-                var isShowClock = $ck.bootstrapSwitch("state");
-                if (isShowClock) {
-                    if ($clockEle.data("IsShow") !== isShowClock) {
-                        $clockEle.data("IsShow", isShowClock);
-                        $clockEle.load("Plus/clock.html");
-                    }
-                } else {
-                    $clockEle.data("IsShow", isShowClock);
-                    $clockEle.html("");
+            var loadAnimate = function (shootNum, starNum) {
+                if (shootNum > 0) {
+                    $body.data("NumSS", shootNum);
+                    $SstarEle.load("Plus/ShootStar.Html");
                 }
 
-                var $numShootStar = $("#txt_NumShootStar").val();
-                $numShootStar = parseInt($numShootStar);
-                $Sstar = $('.shooting-star');
-                if ($numShootStar > 0) {
-                    if ($SstarEle.data("Num") != $numShootStar) {
-                        $SstarEle.data("Num", $numShootStar);
-
-                        $Sstar.remove();
-                        $SstarEle.load("Plus/ShootStar.Html");
-                    }
+                if (starNum > 0) {
+                    $body.data("NumS", starNum);
+                    $starEle.load("Plus/Star.html");
                 }
-                else {
-                    $Sstar.remove();
-                    $SstarEle.html("");
-                }
-
-                var numStar = $("#txt_NumStar").val();
-                numStar = parseInt(numStar);
-
-                var $star = $(".fx-star");
-                if (numStar > 0) {
-                    if ($starEle.data("Num") != numStar) {
-                        $starEle.data("Num", numStar);
-
-                        $star.remove();
-                        $starEle.load("Plus/Star.html");
-                    }
-                }
-                else {
-                    $star.remove();
-                    $starEle.html("");
-                }
-
-                if ($btnSaveSetting.data("Notifi") === 1) {
-                    new NotificationFx({
-                        message: '<p>设置成功,正在重新载入。。</p>',
-                        layout: 'attached',
-                        effect: 'flip'
-                    }).show();
-                }
-            });
+            }
 
 
             //默认加载
             setTimeout(function () {
-                if (document.body.clientWidth < 768) {
-                    $("#txt_NumShootStar").val(0);
-                }
-                
+                var sNum = 10, starNum = 30;
 
-                $btnSaveSetting.click();
-                $btnSaveSetting.data("Notifi", 1);
+                if (document.body.clientWidth < 768) {
+                    sNum = 0;
+                }
+
+                loadAnimate(sNum, starNum);
             }, 5000);
 
 
@@ -288,7 +185,7 @@
                 swal("看看网址后缀!!", "这是静态页面啦，哪里可以收索的啦~。~");
             });
 
-          
+
             var $main = $("#contont_main");
             //Nav
             $("#nav_contont").find("a.alink_nav").click(function (e) {

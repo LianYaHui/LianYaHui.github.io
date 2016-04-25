@@ -27,8 +27,7 @@
         height = height > $body.height() ? height : $body.height();
 
 
-        var starNum = $("#txt_NumShootStar").val();
-        starNum = parseInt(starNum);
+        var starNum = $body.data("NumSS");
 
         var shootingHtml = "";
         for (var i = 0; i < starNum; i++)
