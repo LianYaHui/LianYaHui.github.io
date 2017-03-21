@@ -1,0 +1,68 @@
+﻿<style>
+    .shooting-star {
+        overflow: hidden;
+        -moz-transform-origin: right center;
+        -ms-transform-origin: right center;
+        -o-transform-origin: right center;
+        -webkit-transform-origin: right center;
+        transform-origin: right center;
+        position: absolute;
+    }
+
+        .shooting-star div {
+            padding-top: 3px;
+            height: 30%;
+            border-radius: 50px;
+            position: relative;
+            top: 0;
+            float: right;
+            background-color: #ffffff;
+            box-shadow: 0 0 10px #fbf5d0;
+        }
+</style>
+<script>
+    $(function () {
+        var $body = $(document.body);
+        var height = document.documentElement.clientHeight;
+        height = height > $body.height() ? height : $body.height();
+
+
+        var starNum = $body.data("NumSS");
+
+        var shootingHtml = "";
+        for (var i = 0; i < starNum; i++)
+            shootingHtml += ("<div class='shooting-star'><div></div></div>");
+
+
+        var $shootStar = $(shootingHtml).each(function () {
+            ShootStar(this);
+
+        });
+
+        $body.append($shootStar);
+
+        function ShootStar(obj) {
+            var _W = _W = (GetRand() % 500 + 200),
+                _w = (GetRand() % 50 + 50),
+                timer = (GetRand() % 4000 + 1000);
+
+            $(obj).css({
+                width: (_W + "px"),
+                height: ((GetRand() % 2) + "px"),
+                transform: "rotate(-" + (GetRand() % 15 + 30) + "deg)",
+                top: (GetRand() % parseInt(height)) + "px",
+                left: (GetRand() % parseInt($body.width()) - 150) + "px",
+            }).find("div")
+                .css({
+                    width: _w + "px",
+                    right: -_w + "px"
+                })
+                .animate({
+                    right: _W + _w + "px"
+                }, timer, "linear", function () {
+                    ShootStar(obj);
+                });
+        }
+
+    });
+</script>

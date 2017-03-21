@@ -157,19 +157,19 @@
             var loadAnimate = function (shootNum, starNum) {
                 if (shootNum > 0) {
                     $body.data("NumSS", shootNum);
-                    $SstarEle.load("Plus/ShootStar.Html");
+                    $SstarEle.load("Plug/ShootStar.Html");
                 }
 
                 if (starNum > 0) {
                     $body.data("NumS", starNum);
-                    $starEle.load("Plus/Star.html");
+                    $starEle.load("Plug/Star.html");
                 }
             }
 
 
             //默认加载
             setTimeout(function () {
-                var sNum = 0, starNum = 30;
+                var sNum = 5, starNum = 30;
 
                 if (document.body.clientWidth < 768) {
                     sNum = 0;
