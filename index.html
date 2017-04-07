@@ -21,7 +21,7 @@
             -webkit-transition: all 0.5s;
             transition: all 0.5s;
         }
-
+        
         .scroll-up {
             width: 40px;
             height: 40px;
@@ -53,7 +53,7 @@
                                 <span class="input-group-btn">
                                     <button id="btn_search" class="btn btn-default" type="button">
                                         <span class="fui-search"></span>
-                                    </button>
+                                </button>
                                 </span>
                             </div>
                         </div>
@@ -125,12 +125,15 @@
 
         function GetRequest() {
             var url = location.search; //获取url中"?"符后的字串
-            var theRequest = new Object();
+            var theRequest = {};
             if (url.indexOf("?") != -1) {
                 var str = url.substr(1);
                 strs = str.split("&");
                 for (var i = 0; i < strs.length; i++) {
-                    theRequest[strs[i].split("=")[0]] = unescape(strs[i].split("=")[1]);
+
+                    var currentArg = strs[i].split("=");
+
+                    theRequest[currentArg[0]] = unescape(currentArg[1]);
                 }
             }
             return theRequest;
@@ -180,17 +183,20 @@
 
             //搜索
             $btnSearch = $("#btn_search").click(function () {
-                swal("看看网址后缀!!", "这是静态页面啦，哪里可以收索的啦~。~");
+                swal("看看网址后缀!!", "没有做搜索功能啦，小哥哥你好讨厌的啦~。~");
             });
 
+            var $main = $("#contont_main"),
+                $nav = $("#nav_contont");
 
-            var $main = $("#contont_main");
+
+
             //Nav
-            $("#nav_contont").find("a.alink_nav").click(function (e) {
+            $nav.find("a.alink_nav").click(function (e) {
                 e.preventDefault();
                 $main.load($(this).attr("href"));
             });
-            $("#nav_contont").find("a.alink_nav").eq(0).click();
+            $nav.find("a.alink_nav").eq(0).click();
 
             $("#btn_ReTop").click(function () {
                 $bd.animate({
