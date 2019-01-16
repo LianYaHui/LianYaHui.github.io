@@ -6,8 +6,13 @@
             <li class="previous">
                 <a href="#" class="fui-arrow-left"></a>
             </li>
-            <li><a href="#fakelink" class="active index">1</a></li>
-            <li><a href="#fakelink">总共<span id="total_sp"></span>页</a></li>
+            <li>
+                <a href="#fakelink" class="active index">1</a>
+            </li>
+            <li>
+                <a href="#fakelink">总共
+                    <span id="total_sp"></span>页</a>
+            </li>
             <li class="next">
                 <a href="#" class="fui-arrow-right"></a>
             </li>
@@ -28,13 +33,10 @@
 
     $(function () {
         var htmlUrl = "beautiful/$date.html",
-            html = [
-                { title: "喵？", href: "20170911" },
-                { title: "带我超神带我灰", href: "20170728" },
-                { title: "细节决定成败", href: "20170728_1" },
-                { title: "如果没有遇见你", href: "20170506" }
-
-            ];
+            html = [{
+                title: "无颜女",
+                href: ""
+            }];
 
         var qs = GetRequest();
         var date = qs.article;
